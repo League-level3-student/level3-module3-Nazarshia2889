@@ -34,13 +34,19 @@ public class _01_StringMethods {
 
     // Given Strings s1 and s2, return the longer String
     public static String longerString(String s1, String s2) {
-        return null;
+    	if(s1.length()>s2.length()) {
+    		return s1;
+    	}
+        return s2;
     }
 
     // If String s contains the word "underscores", change all of the spaces
     // to underscores
     public static String formatSpaces(String s) {
-        return null;
+        if(s.contains("underscores")) {
+        	return s.replace(" ", "_");
+        }
+        return s;
     }
 
     // Return the name of the person whose LAST name would appear first if they
@@ -48,17 +54,49 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        return null;
+    	String a = s1.trim();
+    	Character one = a.charAt(a.length()-1);
+    	
+    	String b = s2.trim();
+    	Character two = b.trim().charAt(b.length()-1);
+    	
+    	String c = s3.trim();
+    	Character three = c.trim().charAt(c.length()-1);
+    	if(one.compareTo(two) < 0 && one.compareTo(three) < 0) {
+    		return a;
+    	}
+    	else if(two.compareTo(one) < 0 && two.compareTo(three) < 0) {
+    		return b;
+    	}
+    	else if(three.compareTo(one) < 0 && three.compareTo(two) < 0){
+    		return c;
+    	}
+    	return a;
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	char[] numbers = s.toCharArray();
+    	int sum = 0;
+    	for(int i = 0;i<numbers.length;i++) {
+    		if(Character.isDigit(numbers[i])) {
+    			int x = Character.getNumericValue(numbers[i]);
+    			sum += x;
+    		}
+    	}
+    	
+        return sum;
     }
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+    	int nums = 0;
+        int index = s.indexOf(substring);
+        while( index != -1 ) {
+            nums++;
+            index = s.indexOf(substring, index + substring.length());
+        }
+        return nums;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
