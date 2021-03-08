@@ -101,26 +101,47 @@ public class _01_StringMethods {
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+        return Utilities.encrypt(s.getBytes(), (byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+        return Utilities.decrypt(s, (byte) key);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	String[] words = s.split(" ");
+    	int nums = 0;
+    	for(int i = 0;i<words.length;i++) {
+    		if(words[i].indexOf(substring) != -1) {
+    			if(words[i].substring(words[i].length() - substring.length(), words[i].length()).equalsIgnoreCase(substring)) {
+    				nums++;
+    			}
+    		}
+    	}
+        return nums;
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+    	int start = s.indexOf(substring) + substring.length();
+    	int last = s.indexOf(substring);
+		while((last+substring.length())<s.length()-1) {
+			last = s.indexOf(substring, last + substring.length());
+		}
+		if(s.indexOf(substring) != -1) {
+			System.out.println(s);
+			System.out.println(substring);
+			return last-start;
+    	}
+		else {
+			return 0;
+		}
     }
 
     // Return true if String s is a palindrome
