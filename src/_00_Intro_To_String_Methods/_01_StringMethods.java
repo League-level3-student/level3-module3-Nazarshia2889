@@ -1,5 +1,6 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.Arrays;
 import java.util.Base64;
 
 /*
@@ -131,12 +132,13 @@ public class _01_StringMethods {
     public static int distance(String s, String substring) {
     	int start = s.indexOf(substring) + substring.length();
     	int last = s.indexOf(substring);
-		while((last+substring.length())<s.length()-1) {
+		while((last+substring.length())<s.length()) {
 			last = s.indexOf(substring, last + substring.length());
 		}
+		System.out.println(s);
+		System.out.println(start);
+		System.out.println(last);
 		if(s.indexOf(substring) != -1) {
-			System.out.println(s);
-			System.out.println(substring);
 			return last-start;
     	}
 		else {
@@ -148,7 +150,17 @@ public class _01_StringMethods {
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-        return true;
+        String n = s.replaceAll("\\p{Punct}", "");
+        n = n.replace(" ", "");
+        n = n.toLowerCase();
+        char[] chars = n.toCharArray();
+        char[] reversed = new char[chars.length];
+        int counter = 0;
+        for(int i = chars.length-1;i>=0;i--) {
+        	reversed[counter] = chars[i];
+        	counter += 1;
+        }
+        return Arrays.equals(reversed, chars);
     }
 }
 
