@@ -20,7 +20,19 @@ public class _01_TheWave {
      */
     
     public static ArrayList<String> wave(String str) {
-        
-        return null;
+        ArrayList<String> strings = new ArrayList<String>();
+        for(int i = 0;i<str.length();i++) {
+        	char[] strChars = str.toCharArray();
+        	if(strChars[i] == ' ') {
+        		continue;
+        	}
+        	else {
+        		strChars[i] = Character.toUpperCase(strChars[i]);
+        		String result = new String(strChars);
+            	strings.add(result);
+        	}
+        	
+        }
+        return strings;
     }
 }
