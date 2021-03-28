@@ -66,13 +66,12 @@ public class _02_PasswordChecker implements KeyListener {
     static final String CORRECT = " + ";
     static final boolean USE_FIND = true;
     static final boolean USE_MATCH = false;
-    static final String CRITERIA1 = "A minimum of 8 characters";
+    static final String CRITERIA1 = "A minimum of 8 characters and a mximum of 20 characters";
     static final String CRITERIA2 = "Must contain at least 1 number";
     static final String CRITERIA3 = "Must contain at least 1 capital letter";
     static final String CRITERIA4 = "Must contain at least 1 special character";
     static final String CRITERIA5 = "Must not contain any whitespaces";
     static final String CRITERIA6 = "Must contain at least 1 lower case letters";
-    static final String CRITERIA7 = "A maximum of 20 characters";
     static Font textFont = new Font( "Arial", Font.PLAIN, 18);
     JPasswordField passwordField;
     ArrayList<Criteria> criterias;
