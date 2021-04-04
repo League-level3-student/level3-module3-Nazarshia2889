@@ -23,7 +23,7 @@ public class _00_StringMethodsDemo {
         
         // Converting a String to a number
         // Do you remember Integer.parseInt()? or Double.parseDouble()?
-        
+       
         // Converting a number to a String
         // Do you remember how to combine Strings using +?
         
